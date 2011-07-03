@@ -1,0 +1,59 @@
+﻿@model Character
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table>
+    <tr>
+        <th>Scenario</th>
+        <th>Model Property</th>
+        <th>Method Call</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td>Using property name for resource name</td>
+        <td>
+            <pre class="csharpcode">[Display(ResourceType = <span class="kwrd">typeof</span>(ModelMetadata.Web.Resources.Resource))]
+<span class="kwrd">public</span> <span class="kwrd">string</span> FirstName { get; set; }</pre>
+
+        </td>
+        <td>Html.LabelFor(m => m.FirstName)</td>
+        <td>@Html.LabelFor(m => m.FirstName)</td>
+    </tr>
+    <tr>
+        <td>Specifying Resource Name only</td>
+        <td>
+            <pre class="csharpcode">[Display(Name = <span class="str">&quot;Character_LastName&quot;</span>)]
+<span class="kwrd">public</span> <span class="kwrd">string</span> LastName { get; set; }</pre>
+        </td>
+        <td>Html.LabelFor(m => m.LastName)</td>
+        <td>@Html.LabelFor(m => m.LastName)</td>
+    </tr>
+    <tr>
+        <td>Fully conventional</td>
+        <td>
+            <pre class="csharpcode"><span class="kwrd">public</span> <span class="kwrd">int</span> HitPoints { get; set; }</pre>
+        </td>
+        <td>Html.LabelFor(m => m.HitPoints)</td>
+        <td>@Html.LabelFor(m => m.HitPoints)</td>
+    </tr>
+    <tr>
+        <td>Using Name as display text fallback</td>
+        <td>
+            <pre class="csharpcode">[Display(Name = <span class="str">&quot;The Level (from DisplayAttribute)&quot;</span>)]
+<span class="kwrd">public</span> <span class="kwrd">int</span> Level { get; set; }</pre>
+        </td>
+        <td>Html.LabelFor(m => m.Level)</td>
+        <td>@Html.LabelFor(m => m.Level)</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm()) {
+    <fieldset>
+        <legend>Validation Demo</legend>
+        @Html.EditorForModel()
+        <input type="submit" />
+    </fieldset>
+}
+
