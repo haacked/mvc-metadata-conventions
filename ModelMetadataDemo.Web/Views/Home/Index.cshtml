@@ -4,6 +4,17 @@
     ViewBag.Title = "Home Page";
 }
 
+<p>
+    <form method="get" action="/">
+        <label>Culture:</label>
+        <select name="culture">
+            <option value="en" @if (ViewBag.Culture == "en") {<text>selected="selected"</text>}>English</option>
+            <option value="es" @if (ViewBag.Culture == "es") {<text>selected="selected"</text>}>Spanish</option>
+        </select>
+        <input type="submit" />
+    </form>
+</p>
+
 <table>
     <tr>
         <th>Scenario</th>
@@ -12,9 +23,11 @@
         <th>Result</th>
     </tr>
     <tr>
-        <td>Using property name for resource name</td>
         <td>
-            <pre class="csharpcode">[Display(ResourceType = <span class="kwrd">typeof</span>(ModelMetadata.Web.Resources.Resource))]
+            Using Property Name as the resource key.
+        </td>
+        <td>
+            <pre class="csharpcode">[Required]
 <span class="kwrd">public</span> <span class="kwrd">string</span> FirstName { get; set; }</pre>
 
         </td>
@@ -22,21 +35,29 @@
         <td>@Html.LabelFor(m => m.FirstName)</td>
     </tr>
     <tr>
-        <td>Specifying Resource Name only</td>
+        <td>Specifying Resource Key only</td>
         <td>
-            <pre class="csharpcode">[Display(Name = <span class="str">&quot;Character_LastName&quot;</span>)]
+            <pre class="csharpcode">[Display(Name = <span class="str">&quot;LastNameLabel&quot;</span>)]
 <span class="kwrd">public</span> <span class="kwrd">string</span> LastName { get; set; }</pre>
         </td>
         <td>Html.LabelFor(m => m.LastName)</td>
         <td>@Html.LabelFor(m => m.LastName)</td>
     </tr>
     <tr>
-        <td>Fully conventional</td>
+        <td>Fully conventional, loading value from resource file</td>
         <td>
             <pre class="csharpcode"><span class="kwrd">public</span> <span class="kwrd">int</span> HitPoints { get; set; }</pre>
         </td>
         <td>Html.LabelFor(m => m.HitPoints)</td>
         <td>@Html.LabelFor(m => m.HitPoints)</td>
+    </tr>
+    <tr>
+        <td>Fully conventional, no corresponding resource string, pascal case splitting.</td>
+        <td>
+            <pre class="csharpcode"><span class="kwrd">public</span> <span class="kwrd">int</span> ArmorClass { get; set; }</pre>
+        </td>
+        <td>Html.LabelFor(m => m.ArmorClass)</td>
+        <td>@Html.LabelFor(m => m.ArmorClass)</td>
     </tr>
     <tr>
         <td>Using Name as display text fallback</td>

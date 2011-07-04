@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Character_FirstName" xml:space="preserve">
-    <value>First Name (from resource)</value>
+    <value>Nombre (From Resource)</value>
   </data>
   <data name="Character_FirstName_Required" xml:space="preserve">
-    <value>The first name is required. Really. (from Resource)</value>
+    <value>Nombre es necesario. (from Resource)</value>
   </data>
   <data name="Character_HitPoints" xml:space="preserve">
-    <value>Hit Points (from resource)</value>
+    <value>Puntos de Vida (from resource)</value>
   </data>
   <data name="Character_HitPoints_Required" xml:space="preserve">
-    <value>Testing Hit Points required from resource</value>
+    <value>Puntos de vida es es necesario from resource</value>
   </data>
   <data name="Error_Required" xml:space="preserve">
-    <value>'{0}' Required Fallback Error Message from resource</value>
+    <value>'{0}' es Necesario Fallback Error Message from resource</value>
   </data>
   <data name="LastNameLabel" xml:space="preserve">
-    <value>Last Name (from Resource)</value>
+    <value>Sudo nombre (from Resource)</value>
   </data>
 </root>

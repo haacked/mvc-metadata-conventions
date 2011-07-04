@@ -67,11 +67,12 @@ namespace ModelMetadataExtensions {
                 if (!displayAttribute.ResourceType.PropertyExists(displayAttribute.Name)) {
                     displayAttribute.ResourceType = null;
                 }
-                return metadataFactory(rewrittenAttributes);
             }
 
             var metadata = metadataFactory(rewrittenAttributes);
-            metadata.DisplayName = metadata.PropertyName.SplitUpperCaseToString();
+            if (metadata.DisplayName == metadata.PropertyName) {
+                metadata.DisplayName = metadata.DisplayName.SplitUpperCaseToString();
+            }
             return metadata;
         }
 

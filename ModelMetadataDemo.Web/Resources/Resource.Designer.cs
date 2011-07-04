@@ -61,7 +61,7 @@ namespace MetadataExtensionsDemo.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First Name (from Resource).
+        ///   Looks up a localized string similar to First Name (from resource).
         /// </summary>
         public static string Character_FirstName {
             get {
@@ -97,20 +97,20 @@ namespace MetadataExtensionsDemo.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last Name (from Resource).
-        /// </summary>
-        public static string Character_LastName {
-            get {
-                return ResourceManager.GetString("Character_LastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; Required Fallback Error Message from resource.
         /// </summary>
         public static string Error_Required {
             get {
                 return ResourceManager.GetString("Error_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name (from Resource).
+        /// </summary>
+        public static string LastNameLabel {
+            get {
+                return ResourceManager.GetString("LastNameLabel", resourceCulture);
             }
         }
     }
