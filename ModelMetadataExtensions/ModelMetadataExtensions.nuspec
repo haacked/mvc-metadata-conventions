@@ -8,6 +8,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>http://haacked.com/archive/2011/07/14/model-metadata-and-validation-localization-using-conventions.aspx</projectUrl>
     <tags>aspnetmvc model-metadata localization</tags>
   </metadata>
 </package>
