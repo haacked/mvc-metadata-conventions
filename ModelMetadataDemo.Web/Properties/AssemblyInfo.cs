@@ -1,7 +1,5 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using MetadataExtensionsDemo.Web.Resources;
-using ModelMetadataExtensions;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -15,7 +13,7 @@ using ModelMetadataExtensions;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: MetadataConventions(ResourceType = typeof(Resource))]
+//[assembly: MetadataConventions(ResourceType = typeof(Resource))]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 

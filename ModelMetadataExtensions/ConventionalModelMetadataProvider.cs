@@ -7,17 +7,17 @@ using ModelMetadataExtensions.Extensions;
 
 namespace ModelMetadataExtensions {
     public class ConventionalModelMetadataProvider : DataAnnotationsModelMetadataProvider {
-        public ConventionalModelMetadataProvider(bool requireAttribute)
-            : this(requireAttribute, null) {
+        public ConventionalModelMetadataProvider(bool requireConventionAttribute)
+            : this(requireConventionAttribute, null) {
         }
 
-        public ConventionalModelMetadataProvider(bool requireAttribute, Type defaultResourceType) {
-            RequireAttribute = requireAttribute;
+        public ConventionalModelMetadataProvider(bool requireConventionAttribute, Type defaultResourceType) {
+            RequireConventionAttribute = requireConventionAttribute;
             DefaultResourceType = defaultResourceType;
         }
 
-        // Whether or not the conventions only apply to classes with the MetadataConventionsAttribute attribute applied.
-        public bool RequireAttribute {
+        // Whether or not the conventions only apply to classes with the MetadatawonventionsAttribute attribute applied.
+        public bool RequireConventionAttribute {
             get;
             private set;
         }
@@ -38,7 +38,7 @@ namespace ModelMetadataExtensions {
             if (conventionAttribute != null && conventionAttribute.ResourceType != null) {
                 defaultResourceType = conventionAttribute.ResourceType;
             }
-            else if (RequireAttribute) {
+            else if (RequireConventionAttribute) {
                 return metadataFactory(attributes);
             }
 

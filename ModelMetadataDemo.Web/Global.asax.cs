@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using MetadataExtensionsDemo.Web.Resources;
 using ModelMetadataExtensions;
 
 namespace ModelMetadataDemo.Web {
@@ -24,7 +25,10 @@ namespace ModelMetadataDemo.Web {
 
         protected void Application_Start() {
             AreaRegistration.RegisterAllAreas();
-            ModelMetadataProviders.Current = new ConventionalModelMetadataProvider(requireAttribute: true);
+            ModelMetadataProviders.Current = new ConventionalModelMetadataProvider(
+                requireConventionAttribute: false,
+                defaultResourceType: typeof(Resource)
+            );
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);

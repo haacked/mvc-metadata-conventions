@@ -5,15 +5,15 @@ namespace UnitTests {
     public class ConventionalModelMetadataProviderTests {
         [Fact]
         public void Ctor_WithRequireAttribute_SetsProperty() {
-            var provider = new ConventionalModelMetadataProvider(requireAttribute: true);
-            Assert.Equal(true, provider.RequireAttribute);
+            var provider = new ConventionalModelMetadataProvider(requireConventionAttribute: true);
+            Assert.Equal(true, provider.RequireConventionAttribute);
         }
 
         [Fact]
         public void CreateMetadata_WithFullDisplayAttribute_ReturnsResourceValue() {
             // arrange
             var model = new TestModel { PropertyWithFullDisplayAttribute = "HelloWorld" };
-            var provider = new ConventionalModelMetadataProvider(requireAttribute: false);
+            var provider = new ConventionalModelMetadataProvider(requireConventionAttribute: false);
 
             // act
             var metadata = provider.GetMetadataForProperty(() => model, model.GetType(), "PropertyWithFullDisplayAttribute");
@@ -26,7 +26,7 @@ namespace UnitTests {
         public void CreateMetadata_WithNoDisplayAttributeNorResource_ReturnsSpitDisplayName() {
             // arrange
             var model = new { FirstName = "HelloWorld" };
-            var provider = new ConventionalModelMetadataProvider(requireAttribute: false);
+            var provider = new ConventionalModelMetadataProvider(requireConventionAttribute: false);
 
             // act
             var metadata = provider.GetMetadataForProperty(() => model, model.GetType(), "FirstName");
@@ -39,7 +39,7 @@ namespace UnitTests {
         public void CreateMetadata_WithDisplayAttributeNorResourceWithName_ReturnsSpecifiedName() {
             // arrange
             var model = new TestModel { PropertyWithDisplayAttributeHavingName = "HelloWorld" };
-            var provider = new ConventionalModelMetadataProvider(requireAttribute: false);
+            var provider = new ConventionalModelMetadataProvider(requireConventionAttribute: false);
 
             // act
             var metadata = provider.GetMetadataForProperty(() => model, model.GetType(), "PropertyWithDisplayAttributeHavingName");
@@ -52,7 +52,7 @@ namespace UnitTests {
         public void CreateMetadata_WithPropertyMatchingResourceKey_ReturnsResourceValue() {
             // arrange
             var model = new TestModel { PropertyWithMatchingResourceKey = "HelloWorld" };
-            var provider = new ConventionalModelMetadataProvider(requireAttribute: false);
+            var provider = new ConventionalModelMetadataProvider(requireConventionAttribute: false);
 
             // act
             var metadata = provider.GetMetadataForProperty(() => model, model.GetType(), "PropertyWithMatchingResourceKey");
@@ -65,7 +65,7 @@ namespace UnitTests {
         public void CreateMetadata_WithDisplayAttributeMatchingResourceKey_ReturnsResourceValue() {
             // arrange
             var model = new TestModel { PropertyWithDisplayAttributeMatchingResourceKey = "HelloWorld" };
-            var provider = new ConventionalModelMetadataProvider(requireAttribute: false);
+            var provider = new ConventionalModelMetadataProvider(requireConventionAttribute: false);
 
             // act
             var metadata = provider.GetMetadataForProperty(() => model, model.GetType(), "PropertyWithDisplayAttributeMatchingResourceKey");
