@@ -5,14 +5,14 @@
 }
 
 <p>
-    <form method="get" action="/">
+    @using (Html.BeginForm()) {
         <label>Culture:</label>
         <select name="culture">
             <option value="en" @if (ViewBag.Culture == "en") {<text>selected="selected"</text>}>English</option>
             <option value="es" @if (ViewBag.Culture == "es") {<text>selected="selected"</text>}>Spanish</option>
         </select>
         <input type="submit" />
-    </form>
+    }
 </p>
 
 <table>
@@ -77,4 +77,3 @@
         <input type="submit" />
     </fieldset>
 }
-
