@@ -15,9 +15,6 @@ namespace ModelMetadataExtensions.Extensions {
             copy.ResourceType = attribute.ResourceType;
             copy.ShortName = attribute.ShortName;
             copy.Prompt = attribute.Prompt;
-            copy.AutoGenerateField = attribute.AutoGenerateField;
-            copy.AutoGenerateFilter = attribute.AutoGenerateFilter;
-            copy.Order = attribute.Order;
 
             return copy;
         }
