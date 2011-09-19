@@ -70,8 +70,8 @@ namespace ModelMetadataExtensions {
             }
 
             var metadata = metadataFactory(rewrittenAttributes);
-            if (metadata.DisplayName == metadata.PropertyName) {
-                metadata.DisplayName = metadata.DisplayName.SplitUpperCaseToString();
+            if (metadata.DisplayName == null || metadata.DisplayName == metadata.PropertyName) {
+                metadata.DisplayName = metadata.PropertyName.SplitUpperCaseToString();
             }
             return metadata;
         }
