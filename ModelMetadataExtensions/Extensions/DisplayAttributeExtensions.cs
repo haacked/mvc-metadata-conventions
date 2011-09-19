@@ -14,13 +14,17 @@ namespace ModelMetadataExtensions.Extensions {
             copy.Description = attribute.Description;
             copy.ResourceType = attribute.ResourceType;
             copy.ShortName = attribute.ShortName;
-            
+            copy.Prompt = attribute.Prompt;
+            copy.AutoGenerateField = attribute.AutoGenerateField;
+            copy.AutoGenerateFilter = attribute.AutoGenerateFilter;
+            copy.Order = attribute.Order;
+
             return copy;
         }
 
         public static bool CanSupplyDisplayName(this DisplayAttribute attribute) {
-            return attribute != null 
-                && attribute.ResourceType != null 
+            return attribute != null
+                && attribute.ResourceType != null
                 && !string.IsNullOrEmpty(attribute.Name);
         }
     }
