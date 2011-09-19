@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -7,13 +8,15 @@ using ModelMetadataDemo.Web.Models;
 namespace ModelMetadataDemo.Web.Controllers {
     public class HomeController : Controller {
         protected override void Initialize(RequestContext requestContext) {
-
+            var culture = requestContext.HttpContext.Request.QueryString["culture"];
+            if (!String.IsNullOrEmpty(culture)) {
+                SetCulture(culture);
+            }
             base.Initialize(requestContext);
         }
 
-        public ActionResult Index(string culture) {
+        public ActionResult Index() {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
-            SetCulture(culture);
             return View(new Character());
         }
 
@@ -25,9 +28,8 @@ namespace ModelMetadataDemo.Web.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Index(Character character, string culture) {
+        public ActionResult Index(Character character) {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
-            SetCulture(culture);
             return View(character);
         }
 
