@@ -89,10 +89,10 @@ namespace ModelMetadataExtensions {
                         if (!resourceType.PropertyExists(resourceKey)) {
                             continue;
                         }
-
-                        validationAttribute.ErrorMessageResourceType = resourceType;
-                        validationAttribute.ErrorMessageResourceName = resourceKey;
                     }
+
+                    validationAttribute.ErrorMessageResourceType = resourceType;
+                    validationAttribute.ErrorMessageResourceName = resourceKey;
                 }
             }
         }
