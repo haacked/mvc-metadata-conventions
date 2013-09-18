@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ModelMetadataDemo.Web.Models {
-    public class Character {
+namespace ModelMetadataDemo.Web.Models
+{
+    public class Character
+    {
         [Required]
         public string FirstName { get; set; }
 

@@ -1,18 +1,23 @@
-﻿using ModelMetadataExtensions.Extensions;
+﻿using System.Collections.Generic;
+using ModelMetadataExtensions.Extensions;
 using Xunit;
 
-namespace UnitTests {
-    public class EnumerableExtensionsTests {
+namespace UnitTests
+{
+    public class EnumerableExtensionsTests
+    {
         [Fact]
-        public void Replace_WithEnumeration_ReturnsNewEnumerationWithItemReplaced() {
+        public void Replace_WithEnumeration_ReturnsNewEnumerationWithItemReplaced()
+        {
             // arrange
-            var testModel = new TestModel { Id = 2 };
-            var replacement = new TestModel { Id = 5 };
-            var items = new TestModel[] {
-                new TestModel { Id = 1 },
+            var testModel = new TestModel {Id = 2};
+            var replacement = new TestModel {Id = 5};
+            var items = new[]
+            {
+                new TestModel {Id = 1},
                 testModel,
-                new TestModel { Id = 3 },
-                new TestModel { Id = 4 },
+                new TestModel {Id = 3},
+                new TestModel {Id = 4}
             };
 
             // act
@@ -24,13 +29,15 @@ namespace UnitTests {
         }
 
         [Fact]
-        public void Replace_WithEnumerationAndNullSource_ReturnsNewEnumerationWithItemReplaced() {
+        public void Replace_WithEnumerationAndNullSource_ReturnsNewEnumerationWithItemReplaced()
+        {
             // arrange
-            var replacement = new TestModel { Id = 5 };
-            var items = new TestModel[] {
-                new TestModel { Id = 1 },
-                new TestModel { Id = 3 },
-                new TestModel { Id = 4 },
+            var replacement = new TestModel {Id = 5};
+            var items = new[]
+            {
+                new TestModel {Id = 1},
+                new TestModel {Id = 3},
+                new TestModel {Id = 4}
             };
 
             // act

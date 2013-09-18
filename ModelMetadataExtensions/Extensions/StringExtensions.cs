@@ -1,30 +1,35 @@
 ﻿using System;
 using System.Collections.Specialized;
 
-namespace ModelMetadataExtensions.Extensions {
-    public static class StringExtensions {
-        public static string SplitUpperCaseToString(this string source) {
-            if (source == null) {
-                return null;
-            }
-            return string.Join(" ", source.SplitUpperCase());
+namespace ModelMetadataExtensions.Extensions
+{
+    public static class StringExtensions
+    {
+        public static string SplitUpperCaseToString(this string source)
+        {
+            return source == null
+                ? null
+                : string.Join(" ", source.SplitUpperCase());
         }
 
-        public static string[] SplitUpperCase(this string source) {
+        public static string[] SplitUpperCase(this string source)
+        {
             if (source == null)
-                return new string[] { }; //Return empty array.
+                return new string[] {}; //Return empty array.
 
             if (source.Length == 0)
-                return new string[] { "" };
+                return new[] {""};
 
-            StringCollection words = new StringCollection();
+            var words = new StringCollection();
             int wordStartIndex = 0;
 
             char[] letters = source.ToCharArray();
             char previousChar = char.MinValue;
             // Skip the first letter. we don't care what case it is.
-            for (int i = 1; i < letters.Length; i++) {
-                if (char.IsUpper(letters[i]) && !char.IsWhiteSpace(previousChar)) {
+            for (int i = 1; i < letters.Length; i++)
+            {
+                if (char.IsUpper(letters[i]) && !char.IsWhiteSpace(previousChar))
+                {
                     //Grab everything before the current index.
                     words.Add(new String(letters, wordStartIndex, i - wordStartIndex));
                     wordStartIndex = i;
@@ -35,10 +40,9 @@ namespace ModelMetadataExtensions.Extensions {
             words.Add(new String(letters, wordStartIndex, letters.Length - wordStartIndex));
 
             //Copy to a string array.
-            string[] wordArray = new string[words.Count];
+            var wordArray = new string[words.Count];
             words.CopyTo(wordArray, 0);
             return wordArray;
         }
-
     }
 }

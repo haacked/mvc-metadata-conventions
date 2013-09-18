@@ -1,65 +1,57 @@
 ﻿using ModelMetadataExtensions.Extensions;
 using Xunit;
 
-namespace UnitTests {
-    public class StringExtensionTests {
+namespace UnitTests
+{
+    public class StringExtensionTests
+    {
         [Fact]
-        public void SplitUpperCaseToString_WithPascalCase_SplitsWithSpaces() {
-            // arrange
-            var original = "ThisIsPascalCased";
+        public void SplitUpperCaseToString_WithPascalCase_SplitsWithSpaces()
+        {
+            string original = "ThisIsPascalCased";
 
-            // act
-            var result = original.SplitUpperCaseToString();
+            string result = original.SplitUpperCaseToString();
 
-            // assert
             Assert.Equal("This Is Pascal Cased", result);
         }
 
         [Fact]
-        public void SplitUpperCaseToString_WithCamelCase_SplitsWithSpaces() {
-            // arrange
-            var original = "thisIsCamelCased";
+        public void SplitUpperCaseToString_WithCamelCase_SplitsWithSpaces()
+        {
+            string original = "thisIsCamelCased";
 
-            // act
-            var result = original.SplitUpperCaseToString();
+            string result = original.SplitUpperCaseToString();
 
-            // assert
             Assert.Equal("this Is Camel Cased", result);
         }
 
         [Fact]
-        public void SplitUpperCaseToString_WithAlreadySplitString_DoesNotReSplit() {
-            // arrange
-            var original = "This Is a Normal Sentence";
+        public void SplitUpperCaseToString_WithAlreadySplitString_DoesNotReSplit()
+        {
+            string original = "This Is a Normal Sentence";
 
-            // act
-            var result = original.SplitUpperCaseToString();
+            string result = original.SplitUpperCaseToString();
 
-            // assert
             Assert.Equal("This Is a Normal Sentence", result);
         }
 
         [Fact]
-        public void SplitUpperCaseToString_WithNull_ReturnsNull() {
-            // arrange
+        public void SplitUpperCaseToString_WithNull_ReturnsNull()
+        {
             string original = null;
 
-            // act
-            var result = original.SplitUpperCaseToString();
+            string result = original.SplitUpperCaseToString();
 
-            // assert
             Assert.Equal(null, result);
         }
 
         [Fact]
-        public void SplitUpperCaseToString_WithEmptyString_ReturnsEmptyString() {
-            // arrange
+        public void SplitUpperCaseToString_WithEmptyString_ReturnsEmptyString()
+        {
             string original = string.Empty;
 
-            // act
-            var result = original.SplitUpperCaseToString();
+            string result = original.SplitUpperCaseToString();
 
-            // assert
             Assert.Equal(string.Empty, result);
         }
     }
