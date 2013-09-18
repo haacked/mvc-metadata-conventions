@@ -7,6 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelMetadataExtensions", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelMetadataDemo.Web", "ModelMetadataDemo.Web\ModelMetadataDemo.Web.csproj", "{FB2F51E1-B0B1-45B6-B409-A9D949F97CD1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{55587739-64EF-4CD4-BA70-82F4518B6AE1}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		build.bat = build.bat
+		ModelMetadataExtensions\ModelMetadataExtensions.nuspec = ModelMetadataExtensions\ModelMetadataExtensions.nuspec
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
