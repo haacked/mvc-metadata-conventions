@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{AFADA4C0-986B-4EB9-858D-9FB752234CEA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelMetadataExtensions", "ModelMetadataExtensions\ModelMetadataExtensions.csproj", "{4CBFABFB-4BF7-4285-9E43-C65D6D5D2200}"
