@@ -57,6 +57,7 @@
     <Compile Include="ConventionalModelMetadataProviderTests.cs" />
     <Compile Include="DisplayAttributeExtensionsTests.cs" />
     <Compile Include="EnumerableExtensionsTests.cs" />
+    <Compile Include="ReflectionExtensionsTests.cs" />
     <Compile Include="Resources\AnotherTestResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

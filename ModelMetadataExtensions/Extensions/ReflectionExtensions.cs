@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace ModelMetadataExtensions.Extensions
 {
@@ -10,7 +11,22 @@ namespace ModelMetadataExtensions.Extensions
             {
                 return false;
             }
-            return type.GetProperty(propertyName) != null;
+
+            var property = type.GetProperty(propertyName,
+                BindingFlags.NonPublic 
+                | BindingFlags.Public 
+                | BindingFlags.Static
+                | BindingFlags.Instance);
+
+            if (property == null)
+            {
+                return false;
+            }
+
+            var getter = property.GetGetMethod(true);
+
+            return getter.IsPublic || getter.IsAssembly || getter.IsFamilyOrAssembly;
+
         }
     }
 }
