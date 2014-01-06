@@ -101,10 +101,14 @@ namespace ModelMetadataExtensions
 
                     if (!resourceType.PropertyExists(resourceKey))
                     {
-                        resourceKey = "Error_" + attributeShortName;
+                        resourceKey = propertyName + "_" + attributeShortName;
                         if (!resourceType.PropertyExists(resourceKey))
                         {
-                            continue;
+                            resourceKey = "Error_" + attributeShortName;
+                            if (!resourceType.PropertyExists(resourceKey))
+                            {
+                                continue;
+                            }
                         }
                     }
 
