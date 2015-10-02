@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 internal static class AssemblyConstants
 {
-    internal const string PackageVersion = "0.1.2";
+    internal const string PackageVersion = "0.1.3";
     internal const string PrereleaseVersion = ""; // Until we ship 1.0, this isn't necessary.
     internal const string AssemblyVersion = PackageVersion + ".0";
 }
