@@ -4,7 +4,7 @@ if "%config%" == "" (
    set config=Release
 )
 if "%nuget%" == "" (
-   set nuget=.nuget\NuGet.exe
+   set nuget=.\tools\nuget\NuGet.exe
 )
 
 
