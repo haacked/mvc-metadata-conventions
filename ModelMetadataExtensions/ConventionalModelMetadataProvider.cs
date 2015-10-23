@@ -38,9 +38,12 @@ namespace ModelMetadataExtensions
 
             var defaultResourceType = DefaultResourceType;
             var conventionAttribute = conventionType.GetAttributeOnTypeOrAssembly<MetadataConventionsAttribute>();
-            if (conventionAttribute != null && conventionAttribute.ResourceType != null)
+            if (conventionAttribute != null)
             {
-                defaultResourceType = conventionAttribute.ResourceType;
+                if (conventionAttribute.ResourceType != null)
+                {
+                    defaultResourceType = conventionAttribute.ResourceType;
+                }
             }
             else if (RequireConventionAttribute)
             {
