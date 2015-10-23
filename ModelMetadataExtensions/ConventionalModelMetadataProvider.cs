@@ -50,7 +50,7 @@ namespace ModelMetadataExtensions
                 return metadataFactory(attributesList);
             }
 
-            ApplyConventionsToValidationAttributes(attributesList, containerType, propertyName, defaultResourceType);
+            ApplyConventionsToValidationAttributes(attributesList, conventionType, propertyName, defaultResourceType);
 
             var foundDisplayAttribute = attributesList.FirstOrDefault(a => a is DisplayAttribute) as DisplayAttribute;
 
