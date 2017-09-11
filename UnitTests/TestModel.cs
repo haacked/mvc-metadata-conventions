@@ -19,5 +19,8 @@ namespace UnitTests
         public string PropertyWithFullDisplayAttribute { get; set; }
 
         public string PropertyWithMatchingResourceKey { get; set; }
+
+        [EmailAddress]
+        public string PropertyWithEmailAddressAttributeMatchingResourceKey { get; set; }
     }
 }

@@ -70,6 +70,15 @@ namespace UnitTests.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Property With EmailAddress Attribute Matching Resource Key.
+        /// </summary>
+        public static string TestModel_PropertyWithEmailAddressAttributeMatchingResourceKey_EmailAddress {
+            get {
+                return ResourceManager.GetString("TestModel_PropertyWithEmailAddressAttributeMatchingResourceKey_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Property With Property Name Matching Resource File.
         /// </summary>
         public static string TestModel_PropertyWithMatchingResourceKey {

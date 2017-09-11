@@ -92,10 +92,10 @@ namespace ModelMetadataExtensions
         private static void ApplyConventionsToValidationAttributes(IEnumerable<Attribute> attributes, Type containerType,
             string propertyName, Type defaultResourceType)
         {
-            foreach (
-                ValidationAttribute validationAttribute in attributes.Where(a => (a as ValidationAttribute != null)))
+            foreach (var validationAttribute in attributes.OfType<ValidationAttribute>())
             {
-                if (string.IsNullOrEmpty(validationAttribute.ErrorMessage))
+                var defaultErrorMessage = GetDefaultErrorMessage(validationAttribute);
+                if (string.IsNullOrEmpty(validationAttribute.ErrorMessage) || validationAttribute.ErrorMessage == defaultErrorMessage)
                 {
                     string attributeShortName = validationAttribute.GetType().Name.Replace("Attribute", "");
                     string resourceKey = GetResourceKey(containerType, propertyName) + "_" + attributeShortName;
@@ -119,6 +119,23 @@ namespace ModelMetadataExtensions
                     validationAttribute.ErrorMessageResourceName = resourceKey;
                 }
             }
+        }
+
+        private static string GetDefaultErrorMessage(ValidationAttribute validationAttribute)
+        {
+            string defaultErrorMessage = null;
+            if (validationAttribute is DataTypeAttribute)
+            {
+                try
+                {
+                    defaultErrorMessage = ((ValidationAttribute)Activator.CreateInstance(validationAttribute.GetType())).ErrorMessage;
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            }
+            return defaultErrorMessage;
         }
 
         private static string GetDisplayAttributeName(Type containerType, string propertyName,
