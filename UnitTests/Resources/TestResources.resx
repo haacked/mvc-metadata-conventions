@@ -123,4 +123,7 @@
   <data name="TestModel_PropertyWithMatchingResourceKey" xml:space="preserve">
     <value>Property With Property Name Matching Resource File</value>
   </data>
+  <data name="TestModel_PropertyWithEmailAddressAttributeMatchingResourceKey_EmailAddress" xml:space="preserve">
+    <value>Property With EmailAddress Attribute Matching Resource Key</value>
+  </data>
 </root>

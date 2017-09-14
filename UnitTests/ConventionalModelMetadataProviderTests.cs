@@ -1,4 +1,6 @@
-﻿using ModelMetadataExtensions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using ModelMetadataExtensions;
 using Xunit;
 
 namespace UnitTests
@@ -69,6 +71,21 @@ namespace UnitTests
                 "PropertyWithDisplayAttributeMatchingResourceKey");
 
             Assert.Equal("Property With Display Name From Resource File", metadata.DisplayName);
+        }
+
+        [Fact]
+        public void CreateMetadata_WithEmailAddressAttributeMatchingResourceKey_SetsErrorMessageResourceName()
+        {
+            var model = new TestModel { PropertyWithEmailAddressAttributeMatchingResourceKey = "HelloWorld" };
+            var provider = new ConventionalModelMetadataProvider(false);
+
+            var metadata = provider.GetMetadataForProperty(() => model, model.GetType(), nameof(TestModel.PropertyWithEmailAddressAttributeMatchingResourceKey));
+
+            var customTypeDescriptor = new AssociatedMetadataTypeTypeDescriptionProvider(metadata.ContainerType).GetTypeDescriptor(metadata.ContainerType);
+            var descriptor = customTypeDescriptor.GetProperties().Find(metadata.PropertyName, true);
+            var emailAddressAttribute = descriptor.Attributes.OfType<EmailAddressAttribute>().Single();
+
+            Assert.Equal("TestModel_PropertyWithEmailAddressAttributeMatchingResourceKey_EmailAddress", emailAddressAttribute.ErrorMessageResourceName);
         }
     }
 }
